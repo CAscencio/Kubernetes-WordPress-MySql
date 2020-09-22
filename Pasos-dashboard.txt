@@ -1,0 +1,14 @@
+1.- Ejecutar
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+
+2.- Crear el Service Account
+kubectl apply -f 01-ServiceAccount.yaml
+
+3.- Crear el ClusterRoleBinding
+kubectl apply -f 02-ClusterRoleBinding.yml
+
+4.- Generar Token 
+kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
+
+5.-Ir a la siguiente ruta y pegar Token generado
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/.

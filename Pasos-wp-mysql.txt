@@ -1,0 +1,20 @@
+1.- PASOS A EJECUTAR EN EL CLUSTER
+kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD
+kubectl create -f mysql/.
+kubectl create -f wordpress/.
+kubectl get secrets
+kubectl get pv
+kubectl get pvc
+kubectl get pods
+kubectl get services
+
+2.- ESCALAR WORDPRESS Y mysql
+kubectl scale --replicas X deployments wordpress-mysql
+kubectl scale --replicas X deployments wordpress
+
+3.-PASOS PARA ELIMINAR LO CREADO
+kubectl delete secret mysql-pass
+kubectl delete deployment -l app=wordpress
+kubectl delete service -l app=wordpress
+kubectl delete pvc -l app=wordpress
+kubectl delete pv -l app=wordpress
