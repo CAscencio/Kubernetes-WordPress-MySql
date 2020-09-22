@@ -2,10 +2,10 @@
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
 
 2.- Crear el Service Account
-kubectl apply -f 01-ServiceAccount.yaml
+kubectl apply -f dashboard/01-ServiceAccount.yml
 
 3.- Crear el ClusterRoleBinding
-kubectl apply -f 02-ClusterRoleBinding.yml
+kubectl apply -f dashboard/02-ClusterRoleBinding.yml
 
 4.- Generar Token 
 kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')

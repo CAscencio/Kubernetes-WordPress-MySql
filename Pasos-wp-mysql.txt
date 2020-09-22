@@ -1,7 +1,7 @@
 1.- PASOS A EJECUTAR EN EL CLUSTER
 kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD
-kubectl create -f mysql/.
-kubectl create -f wordpress/.
+kubectl apply -f mysql/.
+kubectl apply -f wordpress/.
 kubectl get secrets
 kubectl get pv
 kubectl get pvc
